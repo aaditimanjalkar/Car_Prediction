@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<div class="carousel-container">
+    <div class="carousel">
+        <img src="{{ url_for('static', filename='image1.jpeg') }}" alt="Car Image 1">
+        <img src="{{ url_for('static', filename='image2.jpeg') }}" alt="Car Image 2">
+        <img src="{{ url_for('static', filename='image3.jpeg') }}" alt="Car Image 3">
+    </div>
+</div>
+<body>
+    <div class="result-container">
+        <h1>Predicted Price</h1>
+        <!-- Format the prediction to two decimal places -->
+        <p> ₹{{ "{:.2f}".format(prediction) }} Lakhs</p>
+        <a href="/">Go Back</a>
+    </div>
+</body>
+<script>
+    let index = 0;
+    const images = document.querySelectorAll('.carousel img');
+    const totalImages = images.length;
+
+    function showNextImage() {
+        images[index].style.display = 'none';
+        index = (index + 1) % totalImages;
+        images[index].style.display = 'block';
+    }
+
+    setInterval(showNextImage, 3000); // Change image every 3 seconds
+</script>
+</html>

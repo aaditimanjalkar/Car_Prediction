@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="banner">
+            <h1>Car Price Prediction</h1>
+        </div>
+    </header>
+
+    <div class="carousel-container">
+        <div class="carousel">
+            <img src="{{ url_for('static', filename='image1.jpeg') }}" alt="Car Image 1">
+            <img src="{{ url_for('static', filename='image2.jpeg') }}" alt="Car Image 2">
+            <img src="{{ url_for('static', filename='image3.jpeg') }}" alt="Car Image 3">
+        </div>
+    </div>
+
+    <div class="container">
+        <form action="{{ url_for('predict') }}" method="POST">
+            <div class="form-row">
+                <div class="form-column">
+                    <div class="form-group">
+                        <label for="Manufacturer">Manufacturer</label>
+                        <select name="Manufacturer" id="Manufacturer">
+                            {% for manufacturer in manufacturers %}
+                            <option value="{{ manufacturer }}">{{ manufacturer }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Location">Location</label>
+                        <select name="Location" id="Location">
+                            {% for location in locations %}
+                            <option value="{{ location }}">{{ location }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Year">Year</label>
+                        <input type="number" name="Year" id="Year" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Kilometers_Driven">Kilometers Driven</label>
+                        <input type="number" name="Kilometers_Driven" id="Kilometers_Driven" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Fuel_Type">Fuel Type</label>
+                        <select name="Fuel_Type" id="Fuel_Type">
+                            {% for fuel in fuel_types %}
+                            <option value="{{ fuel }}">{{ fuel }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Transmission">Transmission</label>
+                        <select name="Transmission" id="Transmission">
+                            {% for transmission in transmissions %}
+                            <option value="{{ transmission }}">{{ transmission }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-column">
+                    <div class="form-group">
+                        <label for="Owner_Type">Owner Type</label>
+                        <select name="Owner_Type" id="Owner_Type">
+                            {% for owner in owner_types %}
+                            <option value="{{ owner }}">{{ owner }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Engine_CC">Engine CC</label>
+                        <input type="number" name="Engine_CC" id="Engine_CC" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Power">Power</label>
+                        <input type="number" name="Power" id="Power" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Seats">Seats</label>
+                        <select name="Seats" id="Seats">
+                            {% for seat in seats %}
+                            <option value="{{ seat }}">{{ seat }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Mileage_Km_L">Mileage Km/L</label>
+                        <input type="number" name="Mileage_Km_L" id="Mileage_Km_L" required>
+                    </div>
+                </div>
+            </div>
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+
+    <script>
+        let index = 0;
+        const images = document.querySelectorAll('.carousel img');
+        const totalImages = images.length;
+
+        function showNextImage() {
+            images[index].style.display = 'none';
+            index = (index + 1) % totalImages;
+            images[index].style.display = 'block';
+        }
+
+        setInterval(showNextImage, 3000); // Change image every 3 seconds
+    </script>
+</body>
+
+</html>
