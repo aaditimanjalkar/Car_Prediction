@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to top right , #FE7BE5 , #313866);
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+}
+
+header {
+    background: #000000;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.banner h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+.carousel-container {
+    width: 64%;
+    height: 300px;
+    margin: 20px auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.carousel {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel img {
+    width: 100%;
+    display: none;
+}
+
+.carousel img:first-child {
+    display: block;
+}
+
+.container {
+    width: 59%;
+    margin: 20px auto;
+    background-color: rgba(0, 0, 0, 0.459);
+    padding: 33px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.form-column {
+    flex: 1;
+    min-width: 250px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+input[type="number"], select {
+    width: calc(100% - 22px); /* Adjust width to account for padding and border */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-sizing: border-box; /* Ensure padding and border are included in width calculation */
+}
+
+input[type="submit"] {
+    background-color: #000000;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: #313866;
+}
+
+.result-container {
+    width: 50%; /* Adjust the width as needed */
+    height: 280px;
+    margin: 50px auto; /* Center horizontally */
+    background-color: rgba(0, 0, 0, 0.416);
+    padding: 35px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.result-container h1 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.result-container p {
+    font-size: 30px;
+    margin-bottom: 25px;
+    text-align: center; 
+}
+
+.result-container a {
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #000000;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 20xpx;
+    text-align: center; 
+    position: fixed; 
+    top: 10px; 
+    left: 10px; 
+    z-index: 1000;
+}
+
+.result-container a:hover {
+    background-color: #313866;
+}
